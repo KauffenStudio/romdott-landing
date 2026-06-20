@@ -1,20 +1,16 @@
 import WaitlistForm from './_components/WaitlistForm';
 import Link from 'next/link';
+import SiteNav from './_components/SiteNav';
+import SiteFooter from './_components/SiteFooter';
+import { cities } from './_data/cities';
+import { guides } from './_data/guides';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-cream text-soft-black">
 
       {/* ── Nav ──────────────────────────────────────────────────── */}
-      <nav className="flex items-center justify-between px-6 md:px-12 py-6 max-w-6xl mx-auto">
-        <span className="font-serif text-2xl text-soft-black tracking-tight">roomdott.</span>
-        <a
-          href="#waitlist"
-          className="bg-terracotta text-cream font-sans font-semibold text-sm rounded-full px-5 py-2.5 hover:bg-terracotta/90 transition-colors"
-        >
-          Get early access
-        </a>
-      </nav>
+      <SiteNav />
 
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="px-6 md:px-12 pt-16 pb-24 max-w-4xl mx-auto text-center">
@@ -135,26 +131,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Footer ───────────────────────────────────────────────── */}
-      <footer className="px-6 md:px-12 py-10 border-t border-soft-black/10">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="font-serif text-xl text-soft-black">roomdott.</span>
-          <p className="text-soft-black/40 font-sans text-sm text-center">
-            Built in Lisbon · Europe only · © 2026 Roomdott
-          </p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="text-soft-black/40 hover:text-soft-black font-sans text-sm transition-colors">
-              Privacy
+      {/* ── Explore: cities & guides (internal linking) ──────────── */}
+      <section className="px-6 md:px-12 py-20 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12">
+          <div>
+            <h2 className="font-serif text-3xl md:text-4xl text-soft-black mb-3">
+              Find a roommate in your city
+            </h2>
+            <p className="text-soft-black/60 font-sans text-base mb-6">
+              We’re launching across Europe’s biggest student and creative hubs.
+            </p>
+            <div className="flex flex-wrap gap-2.5">
+              {cities.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/roommates/${c.slug}`}
+                  className="border border-soft-black/15 hover:border-terracotta/60 hover:text-terracotta font-sans text-sm rounded-full px-4 py-2 transition-colors"
+                >
+                  {c.name}
+                </Link>
+              ))}
+            </div>
+            <Link href="/roommates" className="inline-block mt-6 font-sans text-sm font-semibold text-terracotta hover:underline">
+              All cities →
             </Link>
-            <Link href="/terms" className="text-soft-black/40 hover:text-soft-black font-sans text-sm transition-colors">
-              Terms
+          </div>
+
+          <div>
+            <h2 className="font-serif text-3xl md:text-4xl text-soft-black mb-3">Roommate guides</h2>
+            <p className="text-soft-black/60 font-sans text-base mb-6">
+              Honest advice on finding compatible roommates and living well together.
+            </p>
+            <ul className="space-y-3">
+              {guides.map((g) => (
+                <li key={g.slug}>
+                  <Link
+                    href={`/guides/${g.slug}`}
+                    className="font-sans text-base text-soft-black/80 hover:text-terracotta transition-colors"
+                  >
+                    {g.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link href="/guides" className="inline-block mt-6 font-sans text-sm font-semibold text-terracotta hover:underline">
+              All guides →
             </Link>
-            <a href="mailto:hello@roomdott.com" className="text-soft-black/40 hover:text-soft-black font-sans text-sm transition-colors">
-              Contact
-            </a>
           </div>
         </div>
-      </footer>
+      </section>
+
+      {/* ── Footer ───────────────────────────────────────────────── */}
+      <SiteFooter />
     </div>
   );
 }
