@@ -15,32 +15,83 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Romdott — Find a roommate you'd actually enjoy living with",
+  title: {
+    default: "Roomdott — Find a roommate you'd actually enjoy living with",
+    template: '%s · Roomdott',
+  },
   description:
-    'Compatibility-matched roommates for students, models, and creatives moving across Europe. Not listings — people.',
-  metadataBase: new URL('https://agapii.com'),
+    'Compatibility-matched roommates for students, models, and creatives moving across Europe. Not listings — people. Free during beta.',
+  metadataBase: new URL('https://roomdott.com'),
+  applicationName: 'Roomdott',
+  keywords: [
+    'roommate matching',
+    'find a roommate Europe',
+    'compatible roommates',
+    'flatmate finder',
+    'roommate finder for students',
+    'Erasmus roommate',
+    'shared flat Europe',
+    'roommate app',
+    'flatshare compatibility',
+  ],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'Romdott — Roommate matching for Europe',
+    title: 'Roomdott — Roommate matching for Europe',
     description:
       "Find a roommate you'd actually enjoy living with. Compatibility-first matching for students and creatives across Europe.",
-    url: 'https://agapii.com',
-    siteName: 'Romdott',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Romdott' }],
+    url: 'https://roomdott.com',
+    siteName: 'Roomdott',
     locale: 'en_EU',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Romdott — Find a roommate you'd actually enjoy living with",
+    title: "Roomdott — Find a roommate you'd actually enjoy living with",
     description: 'Compatibility-matched roommates for students and creatives moving across Europe.',
-    images: ['/og-image.png'],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+  },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://roomdott.com/#organization',
+      name: 'Roomdott',
+      url: 'https://roomdott.com',
+      email: 'hello@roomdott.com',
+      description:
+        'Compatibility-first roommate matching for students, models, and creatives across Europe.',
+      areaServed: 'Europe',
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://roomdott.com/#website',
+      url: 'https://roomdott.com',
+      name: 'Roomdott',
+      publisher: { '@id': 'https://roomdott.com/#organization' },
+      inLanguage: 'en',
+    },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

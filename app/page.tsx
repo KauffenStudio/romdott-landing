@@ -7,7 +7,7 @@ export default function Home() {
 
       {/* ── Nav ──────────────────────────────────────────────────── */}
       <nav className="flex items-center justify-between px-6 md:px-12 py-6 max-w-6xl mx-auto">
-        <span className="font-serif text-2xl text-soft-black tracking-tight">romdott.</span>
+        <span className="font-serif text-2xl text-soft-black tracking-tight">roomdott.</span>
         <a
           href="#waitlist"
           className="bg-terracotta text-cream font-sans font-semibold text-sm rounded-full px-5 py-2.5 hover:bg-terracotta/90 transition-colors"
@@ -29,8 +29,7 @@ export default function Home() {
         </h1>
 
         <p className="text-soft-black/60 font-sans text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
-          Compatibility-matched roommates for students, models, and creatives
-          moving across Europe. Not listings — people.
+          Built for people on the move. Matched by how you actually live.
         </p>
 
         <div id="waitlist" className="relative">
@@ -79,10 +78,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Why Romdott ──────────────────────────────────────────── */}
+      {/* ── Why Roomdott ──────────────────────────────────────────── */}
       <section className="px-6 md:px-12 py-20 max-w-5xl mx-auto">
         <p className="text-terracotta font-sans text-xs font-semibold tracking-widest uppercase text-center mb-4">
-          Why Romdott
+          Why Roomdott
         </p>
         <h2 className="font-serif text-4xl md:text-5xl text-soft-black text-center mb-16">
           Idealista finds you a flat.<br />We find you someone to share it with.
@@ -91,32 +90,32 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-6">
           {[
             {
-              icon: '🔍',
+              number: '01',
               title: 'Compatibility over availability',
               body: 'We score by lifestyle match — sleep schedule, cleanliness, guests, diet, dealbreakers. Not by who responded first.',
             },
             {
-              icon: '🔒',
+              number: '02',
               title: 'Safety by design',
               body: 'Rate limits, same-gender filters, human moderation. Your contact details are only revealed to people who mutually accept you.',
             },
             {
-              icon: '🌍',
+              number: '03',
               title: 'Built for Europe',
-              body: 'Data stays in the EU (Frankfurt). GDPR compliant from day one. Designed for Erasmus, exchange students, fashion week, and expats.',
+              body: 'Data stays in the EU. GDPR compliant from day one. Designed for Erasmus, exchange students, fashion week, and expats.',
             },
             {
-              icon: '🎯',
+              number: '04',
               title: 'Free during beta',
               body: 'No subscription. No pay-to-boost. No fake matches. We succeed only when you find someone worth living with.',
             },
           ].map((card) => (
             <div
               key={card.title}
-              className="bg-white/60 border border-soft-black/8 rounded-3xl p-8 hover:border-terracotta/30 transition-colors"
+              className="border-t-2 border-terracotta/30 pt-6 hover:border-terracotta/70 transition-colors group"
             >
-              <span className="text-3xl mb-4 block">{card.icon}</span>
-              <h3 className="font-serif text-xl text-soft-black mb-2">{card.title}</h3>
+              <span className="font-serif text-4xl text-terracotta/40 group-hover:text-terracotta/60 transition-colors mb-4 block">{card.number}</span>
+              <h3 className="font-serif text-2xl text-soft-black mb-3">{card.title}</h3>
               <p className="text-soft-black/60 font-sans text-base leading-relaxed">{card.body}</p>
             </div>
           ))}
@@ -130,7 +129,7 @@ export default function Home() {
             Ready to find your person?
           </h2>
           <p className="text-cream/70 font-sans text-lg mb-10">
-            Join the waitlist and be first to know when Romdott opens in your city.
+            Join the waitlist and be first to know when Roomdott opens in your city.
           </p>
           <WaitlistForm />
         </div>
@@ -139,9 +138,9 @@ export default function Home() {
       {/* ── Footer ───────────────────────────────────────────────── */}
       <footer className="px-6 md:px-12 py-10 border-t border-soft-black/10">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="font-serif text-xl text-soft-black">romdott.</span>
+          <span className="font-serif text-xl text-soft-black">roomdott.</span>
           <p className="text-soft-black/40 font-sans text-sm text-center">
-            Built in Lisbon · Europe only · © 2026 Romdott
+            Built in Lisbon · Europe only · © 2026 Roomdott
           </p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-soft-black/40 hover:text-soft-black font-sans text-sm transition-colors">
@@ -150,7 +149,7 @@ export default function Home() {
             <Link href="/terms" className="text-soft-black/40 hover:text-soft-black font-sans text-sm transition-colors">
               Terms
             </Link>
-            <a href="mailto:hello@romdott.com" className="text-soft-black/40 hover:text-soft-black font-sans text-sm transition-colors">
+            <a href="mailto:hello@roomdott.com" className="text-soft-black/40 hover:text-soft-black font-sans text-sm transition-colors">
               Contact
             </a>
           </div>

@@ -30,7 +30,7 @@ export default function WaitlistForm() {
       <div className="bg-sage/20 border border-sage/40 rounded-2xl px-6 py-5 text-center max-w-md mx-auto">
         <p className="text-soft-black font-serif text-xl mb-1">You're on the list.</p>
         <p className="text-soft-black/60 font-sans text-sm">
-          We'll reach out before Romdott opens. Tell a friend who's moving too.
+          We'll reach out before Roomdott opens. Tell a friend who's moving too.
         </p>
       </div>
     );
@@ -41,7 +41,7 @@ export default function WaitlistForm() {
       <div className="bg-sage/20 border border-sage/40 rounded-2xl px-6 py-5 text-center max-w-md mx-auto">
         <p className="text-soft-black font-serif text-xl mb-1">Got it — we'll keep you posted.</p>
         <p className="text-soft-black/60 font-sans text-sm">
-          Romdott is launching in Europe first. We'll let you know when we reach your region.
+          Roomdott is launching in Europe first. We'll let you know when we reach your region.
         </p>
       </div>
     );
